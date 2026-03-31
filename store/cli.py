@@ -163,7 +163,7 @@ def keep(key: str, value: str | None, from_file: str | None, do_encrypt: bool) -
 
 
 @cli.command("get")
-@click.argument("key")
+@click.argument("key", shell_complete=_complete_keys)
 def get(key: str) -> None:
     """Retrieve the value for KEY.
 
@@ -198,7 +198,7 @@ def get(key: str) -> None:
 
 
 @cli.command("update")
-@click.argument("key")
+@click.argument("key", shell_complete=_complete_keys)
 @click.argument("value", default=None, required=False)
 @click.option(
     "-f",
@@ -335,7 +335,7 @@ def list_keys(show_encrypted: bool, show_unencrypted: bool, search_term: str | N
 
 
 @cli.command("delete")
-@click.argument("key")
+@click.argument("key", shell_complete=_complete_keys)
 def delete(key: str) -> None:
     """Delete the entry for KEY.
 
@@ -357,7 +357,7 @@ def delete(key: str) -> None:
 
 
 @cli.command("rename")
-@click.argument("old_key")
+@click.argument("old_key", shell_complete=_complete_keys)
 @click.argument("new_key")
 def rename(old_key: str, new_key: str) -> None:
     """Rename OLD_KEY to NEW_KEY.
