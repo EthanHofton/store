@@ -68,6 +68,17 @@ store list --unencrypted                    # only plaintext keys
 store list --search foo                     # keys matching a substring
 ```
 
+### Shell completion
+
+Tab completion is supported for stored key names. To enable it, add the following to your shell config.
+
+**zsh / oh-my-zsh** — add to `~/.zshrc`:
+```zsh
+eval "$(_STORE_COMPLETE=zsh_source store)"
+```
+
+Then reload your shell (`source ~/.zshrc` or open a new terminal).
+
 ### Configuration
 
 | Variable | Default | Description |
